@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html data-bs-theme="dark">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/Style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"> 
+        <div class="container-fluid">
+            <img src="~/img/console-logo.jpeg" width="50" height="50" style="margin-right: 15px"/>
+            <a class="navbar-brand" href="#" onclick="location.href = '@Url.Action("Main","Home")'"><b>Console'щик</b></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item --bs-primary-text-emphasis"> <!-- Переход на основую страницу -->
+                        <a class="nav-link active" aria-current="true" href="#" onclick="location.href='@Url.Action("", "")'">Главное</a>
+                    </li>
+                    <li class="nav-item dropdown"> <!-- Переход на категории -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Категории
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action("StationCategory","Category")'">Стационарные</a></li>
+                            <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action("PortCategory","Category")'">Портативные</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"> <!-- Переход на страницу поддержки -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Помощь
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link" href="#" onclick="location.href='@Url.Action()'">Возврат и обмен товара</a></li>
+                            <li><a class="nav-link" href="#" onclick="location.href='@Url.Action()'">Связь с поддержкой</a></li>
+                            <li><a class="nav-link" href="#" onclick="location.href='@Url.Action()'">Политика конфиденциальности</a></li>
+                            <li><a class="nav-link" href="#" onclick="location.href='@Url.Action()'">Часто задаваемые вопросы</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown" onclick="confirm('Данные разделы находяться в разработке')">
+                        <!-- Переход к настройкам профиля (Отключено) -->
+
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Профиль
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Список настроек внутри выпадающего меню "Профиль" (Отключено) -->
+                            <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список достижений</a></li>
+                            <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">История покупок</a></li>
+                            <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список желаемого</a></li>
+                            <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Настройки профиля</a></li>
+                            <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Отзывы и оценки товаров</a></li>
+                        </ul>
+                    </li>
+                    @*@if(notification != "Access")
+                    {
+                        <li class="nav-item dropdown" onclick="confirm('Для работы с этим разделом требуется авторизоваться на сайте')">
+                            <!-- Переход к настройкам профиля (Отключено) -->
+
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Профиль
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Список настроек внутри выпадающего меню "Профиль" (Отключено) -->
+                                <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список достижений</a></li>
+                                <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">История покупок</a></li>
+                                <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список желаемого</a></li>
+                                <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Настройки профиля</a></li>
+                                <li><a class="nav-link disabled" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Отзывы и оценки товаров</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown"> <!-- Переход к настройкам профиля (Отключено) -->
+                    
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Профиль
+                            </a>
+                            <ul class="dropdown-menu"> <!-- Список настроек внутри выпадающего меню "Профиль" (Отключено) -->
+                                <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список достижений</a></li>
+                                <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">История покупок</a></li>
+                                <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Список желаемого</a></li>
+                                <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Настройки профиля</a></li>
+                                <li><a class="nav-link" href="#" onclick="location.href = '@Url.Action()'" aria-disabled="true">Отзывы и оценки товаров</a></li>
+                            </ul>
+                        </li>
+                    }*@
+                    <li>
+                        <a class="nav-link" href="#" onclick="location.href ='@Url.Action("AddAllConsole", "Home")'">Перегрузить БД</a>
+                    </li>
+                </ul>
+            </div>
+@*            <a href="#" class="btn" role="button" data-bs-toggle="button" onclick="location.href ='@Url.Action("Login", "User")'">Войти</a>
+            <a href="#" class="btn active" role="button" onclick="location.href = '@Url.Action("Register", "User")'" data-bs-toggle="button" aria-pressed="true">Регистрация</a>
+            <img src="~/img/empty-profile.png" alt="Bootstrap" width="30" height="30" role="button" style="margin-left: 10px; border-radius: 50%"> <!-- Условие на аккаунт -->*@
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <div class="position-absolute top-50 end-0">
+        <img src="~/img/shop-cart2.png" role="button" onclick="location.href ='@Url.Action("", "")'" class="btn btn-dark" width="58" height="56" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    </div>    
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

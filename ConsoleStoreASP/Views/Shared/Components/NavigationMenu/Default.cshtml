@@ -1,0 +1,15 @@
+﻿<a class="btn btn-block btn-default" id="navmenu-text" asp-action="Main" asp-controller="Home">Все категории</a>
+<br/>
+@foreach (var category in Model)
+{
+        <br />
+    <br />
+    string Class = (category.CategoryName == ViewBag.SelectedCategory) ? "btn btn-block btn-primary" : "btn btn-block btn-default";
+    <a id="navmenu-text" class=@Class
+   asp-action="Main"
+   asp-controller="Home"
+   asp-route-category="@category.id"
+   asp-route-page="1">
+        @category.categoryName
+    </a>
+}

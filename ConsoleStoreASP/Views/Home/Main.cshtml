@@ -1,0 +1,43 @@
+﻿@model ConsoleStoreASP.Data.Models.ConsolesPagingModel
+
+<div class="row" style="margin-top:16px;">
+    <div class="col col-md-3" id="card-background">
+        <br />
+        @await Component.InvokeAsync("NavigationMenu")
+    </div>
+    <div class="col col-md-9">       
+        <div class="row mb-2" style="justify-content: flex-end;">
+            @*@{
+                //foreach (var consoles in Model.Consoles)
+                //{
+                //    <div class="card mb-3" style="max-width: 940px; max-height:340px" id="card-style">
+                //        <div class="row g-0">
+                //            <div class="col-md-4">
+                //                <img src="@consoles.img" style="max-height:340px;" id="img-card" class="img-fluid rounded-start" alt="...">
+                //            </div>
+                //            <div class="col-md-8">
+                //                <div class="card-body" id="card-font-color">
+                //                    <h5 class="card-title">@consoles.name</h5>
+                //                    <p class="card-text">@consoles.shortDesc</p>
+                //                    <p class="card-text"><small class="text-body-secondary">@consoles.price.ToString("c")</small></p>
+                //                    <button type="button" class="btn btn-success" href="#" onclick="location.href = '@Url.Action("SingleConsole", "Home", new { _id = consoles.id})'">Подробнее</button>
+                //                    <button type="button" class="btn btn-success" href="#" onclick="location.href = '@Url.Action("Index", "Cart", new { id = consoles.id})'">В корзину</button>
+                //                </div>
+                //            </div>
+                //        </div>
+                //    </div> 
+                //}
+            }*@
+                
+                 
+            
+        </div>
+        <div page-model="@Model.PagingInfo" page-action=""
+             page-classes-enabled="true"
+             page-class="btn"
+             page-class-normal="btn-default"
+             page-class-selected="btn-primary"
+             class="btn-group pull-right" style="float:right;">
+        </div>
+    </div>
+</div>
